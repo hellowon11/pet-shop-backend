@@ -13,11 +13,7 @@ app.use(express.json());
 
 // 测试路由
 app.get('/', (req, res) => {
-  res.json({ 
-    message: 'Welcome to Pet Shop API',
-    environment: process.env.NODE_ENV,
-    timestamp: new Date().toISOString()
-  });
+  res.send('Hello from Pet Shop API!');
 });
 
 // 错误处理中间件
@@ -29,8 +25,7 @@ app.use((err: Error, req: express.Request, res: express.Response, next: express.
   });
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server is running in ${process.env.NODE_ENV} mode on port ${PORT}`);
-  console.log(`API is available at http://localhost:${PORT}`);
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
