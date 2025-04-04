@@ -1,9 +1,13 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import connectDB from './config/database';
 
 // 加载环境变量
 dotenv.config();
+
+// 连接数据库
+connectDB();
 
 const app = express();
 
@@ -12,8 +16,12 @@ app.use(cors());
 app.use(express.json());
 
 // 测试路由
-app.get('/', (req, res) => {
-  res.send('Hello from Pet Shop API!');
+app.get('/', (req: Request, res: Response) => {
+  res.json({ 
+    message: 'Welcome to Pet Shop API',
+    environment: process.env.NODE_ENV,
+    timestamp: new Date().toISOString()
+  });
 });
 
 // 错误处理中间件
