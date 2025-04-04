@@ -9,8 +9,7 @@
   },
   "scripts": {
     "start": "node dist/index.js",
-    "build": "tsc && npm run postbuild",
-    "postbuild": "cp -r src/public dist/ 2>/dev/null || true",
+    "build": "tsc",
     "dev": "nodemon --exec ts-node src/index.ts",
     "postinstall": "npm run build"
   },
