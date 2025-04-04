@@ -2,7 +2,11 @@
   "name": "pet-shop-backend",
   "version": "1.0.0",
   "description": "Pet Shop Backend API",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "start": "node dist/index.js",
     "build": "tsc",
